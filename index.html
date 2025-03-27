@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyob | Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --text-light: #888888;
+            --primary-color: #a020f0;
+            --secondary-color: #f0f2f5;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --card-bg: #ffffff;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --text-light: #aaaaaa;
+            --primary-color: #a020f0;
+            --secondary-color: #1e1e1e;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --card-bg: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0 auto;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-color);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Home Section */
+        .home {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .home-text {
+            flex: 1;
+        }
+
+        .greeting-container {
+            margin-bottom: 3rem;
+        }
+
+        .greeting {
+            font-size: 5.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #aaaaaa;
+            margin-bottom: 0.5rem;
+        }
+
+        .name-line {
+            font-size: 5.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #aaaaaa;
+            margin-bottom: 0.5rem;
+        }
+
+        .name-highlight {
+            color: var(--primary-color);
+        }
+
+        .meet-line {
+            font-size: 5.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #aaaaaa;
+        }
+
+        .profile-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--text-light);
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* About section styles */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .about-text {
+            margin-bottom: 2rem;
+        }
+
+        .about-paragraph {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .about-focus h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .focus-list {
+            list-style: none;
+        }
+
+        .focus-list li {
+            display: flex;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .focus-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .focus-list h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .focus-list p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* About section styles */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .about-text {
+            margin-bottom: 2rem;
+        }
+
+        .about-paragraph {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .about-focus h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .focus-list {
+            list-style: none;
+        }
+
+        .focus-list li {
+            display: flex;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .focus-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .focus-list h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .focus-list p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Experience section styles */
+        .experience-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            margin-bottom: 3rem;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .experience-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-list {
+            list-style-type: disc;
+            padding-left: 2rem;
+        }
+
+        .experience-list li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* About section styles */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .about-text {
+            margin-bottom: 2rem;
+        }
+
+        .about-paragraph {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .about-focus h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .focus-list {
+            list-style: none;
+        }
+
+        .focus-list li {
+            display: flex;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .focus-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .focus-list h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .focus-list p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Experience section styles */
+        .experience-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            margin-bottom: 3rem;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .experience-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-list {
+            list-style-type: disc;
+            padding-left: 2rem;
+        }
+
+        .experience-list li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Projects section styles */
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            margin-bottom: 3rem;
+        }
+
+        .project-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .project-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-images {
+            margin-bottom: 2rem;
+        }
+
+        .project-image {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px var(--shadow-color);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .project-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .project-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-description h4 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--text-color);
+        }
+
+        .feature-list {
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .project-link:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .project-image-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        /* Skills section styles */
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skills-category {
+            margin-bottom: 3rem;
+        }
+
+        .skills-heading {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .skills-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .tech-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100px;
+        }
+
+        .skill-item i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .skill-item span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .soft-skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .soft-skill {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .soft-skill-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .soft-skill-icon i {
+            font-size: 1.25rem;
+        }
+
+        .soft-skill-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .soft-skill-content p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .soft-skills {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Other sections (hidden initially) */
+        #about, #experience, #projects, #skills {
+            display: none;
+            min-height: calc(100vh - 100px);
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .greeting, .name-line, .meet-line {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .greeting, .name-line, .meet-line {
+                font-size: 3rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .greeting, .name-line, .meet-line {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div></div> <!-- Empty div for spacing -->
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+        <button class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <section id="home" class="home">
+        <div class="home-text">
+            <div class="greeting-container">
+                <h1 class="greeting">Hello!</h1>
+                <p class="name-line">I'm <span class="name-highlight">Eyob</span></p>
+                <p class="meet-line">Nice to meet you</p>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/eyob-bekele-0626a519b" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:eyobbekele112@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" class="social-link discord-link" title="Discord: eyob_75891">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://github.com/laserblade21" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <div class="profile-container">
+            <div class="profile-image">
+                <i class="fas fa-user"></i>
+                <!-- Replace with your image:
+                <img src="your-photo.jpg" alt="Eyob's Portrait"> -->
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-paragraph">
+                        Hey, I'm Eyob. I'm really into coding and figuring out problems through algorithms and writing code. It's like solving puzzles, and I enjoy that a lot.
+                    </p>
+                    <p class="about-paragraph">
+                        I'm also very much interested in AI and the future of it, it's fascinating to see how technology is evolving. When I'm not at my computer, you'll probably find me at the gym or playing soccer. Staying active is a big part of my life.
+                    </p>
+                    <p class="about-paragraph">
+                        Right now, I'm working in a courier service, but I'm looking to transition into tech. I'm excited to see where coding takes me and eager to keep learning and growing in this field.
+                    </p>
+                </div>
+                
+                <div class="about-focus">
+                    <h3>What I Do</h3>
+                    <ul class="focus-list">
+                        <li>
+                            <span class="focus-icon"><i class="fas fa-code"></i></span>
+                            <div>
+                                <h4>Web Development</h4>
+                                <p>Building responsive websites and applications using modern technologies.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="focus-icon"><i class="fas fa-brain"></i></span>
+                            <div>
+                                <h4>Machine Learning</h4>
+                                <p>Developing algorithms and models that can learn from and make predictions on data.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="focus-icon"><i class="fas fa-chart-line"></i></span>
+                            <div>
+                                <h4>Data Analysis</h4>
+                                <p>Interpreting data sets to identify trends and extract valuable insights.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-container">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="experience-title">Eleos Games - Intern</h3>
+                </div>
+                <ul class="experience-list">
+                    <li>Developed a functional chatbot to enhance user engagement.</li>
+                    <li>Contributed to server management using Docker, improving deployment efficiency.</li>
+                    <li>Assisted in website development and content management using Drupal.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Banking Churn Prediction System</h3>
+                </div>
+                <div class="project-content">
+                    <div class="project-description">
+                        <p>
+                            The <strong>Banking Churn Prediction System</strong> is an advanced data-driven platform that helps financial institutions predict customer churn. It provides interactive visualizations, risk segmentation, and actionable insights to enhance customer retention strategies.
+                        </p>
+                        <h4>Key Features:</h4>
+                        <ul class="feature-list">
+                            <li>Customer risk scoring and segmentation</li>
+                            <li>Interactive dashboards with comprehensive data views</li>
+                            <li>Customizable risk threshold configuration</li>
+                            <li>Automatic model retraining with new data</li>
+                            <li>Feature importance analysis for churn prediction</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/laserblade21/banking-churn-prediction" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-images">
+                        <div class="project-image">
+                            <img src="customer-data-table.jpg" alt="Customer data table" class="img-fluid" />
+                            <p class="image-caption">Customer risk analysis dashboard</p>
+                        </div>
+                        <div class="project-image-grid">
+                            <div class="image-grid-item">
+                                <img src="model-configuration.jpg" alt="Model configuration" class="img-fluid" />
+                                <p class="image-caption">Risk threshold configuration</p>
+                            </div>
+                            <div class="image-grid-item">
+                                <img src="customer-overview.jpg" alt="Customer overview" class="img-fluid" />
+                                <p class="image-caption">Customer data view</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Amazon Reviews Spam Detection using LLM Model</h3>
+                </div>
+                <div class="project-content">
+                    <div class="project-description">
+                        <p>
+                            A spam detection system for Amazon product reviews by leveraging a BERT-based pre-trained language model. The project involved three key components:
+                        </p>
+                        
+                        <h4>Model Architecture:</h4>
+                        <p>Fine-tuned a bert-base-multilingual-uncased model specifically for sentiment analysis on product reviews.</p>
+                        
+                        <h4>Backend Implementation:</h4>
+                        <p>Built the backend using Flask, a lightweight Python web framework. The Flask app serves as the interface for handling incoming review texts and forwarding them to the LLM model for sentiment analysis.</p>
+                        
+                        <h4>Frontend Design:</h4>
+                        <p>For the user interface, utilized HTML and CSS to create an intuitive and user-friendly web page. Users can input review text, and the system provides an instant sentiment prediction based on the trained model.</p>
+                        
+                        <h4>Key Achievements:</h4>
+                        <ul class="feature-list">
+                            <li>Successfully fine-tuned the LLM model on an Amazon US Customer Reviews Dataset</li>
+                            <li>Achieved an accuracy of 80% on the evaluation set</li>
+                            <li>Implemented a user-friendly web interface for real-time sentiment analysis</li>
+                        </ul>
+                        
+                        <div class="project-links">
+                            <a href="https://github.com/miki2123j/Amazon-Reviews-Spam-Detection-using-LLM-Model/blob/main/README.md" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-image">
+                        <img src="/api/placeholder/900/400" alt="Amazon Reviews Spam Detection" class="img-fluid" />
+                        <p class="image-caption">BERT-based sentiment analysis system for Amazon reviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-container">
+            <div class="skills-category">
+                <h3 class="skills-heading">Technical Skills</h3>
+                <div class="tech-skills">
+                    <div class="skill-item">
+                        <i class="fab fa-java"></i>
+                        <span>Java</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-brain"></i>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Git</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3 class="skills-heading">Soft Skills</h3>
+                <div class="soft-skills">
+                    <div class="soft-skill">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="soft-skill-content">
+                            <h4>Time Management</h4>
+                            <p>Delivering taught me how to manage my time efficiently, especially under tight deadlines.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="soft-skill">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="soft-skill-content">
+                            <h4>Communication</h4>
+                            <p>I also got used to talking with all kinds of people, which improved my communication and adaptability.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="soft-skill">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-random"></i>
+                        </div>
+                        <div class="soft-skill-content">
+                            <h4>Adaptability</h4>
+                            <p>Every day was unpredictable, so I learned to adjust quickly to changing situations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="soft-skill">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div class="soft-skill-content">
+                            <h4>Problem Solving</h4>
+                            <p>I developed strong problem-solving skills by addressing challenges on the fly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Show home section by default
+        document.getElementById('home').style.display = 'flex';
+
+        // Dark mode toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Simple navigation
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active link
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show selected section, hide others
+                const targetId = this.getAttribute('href').substring(1);
+                sections.forEach(section => {
+                    if (section.id === targetId) {
+                        if (section.id === 'home') {
+                            section.style.display = 'flex';
+                        } else {
+                            section.style.display = 'block';
+                        }
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Discord username copy functionality
+        const discordLink = document.querySelector('.discord-link');
+        
+        discordLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a temporary input to copy the text
+            const tempInput = document.createElement('input');
+            tempInput.value = 'eyob_75891';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            // Show a tooltip or alert
+            alert('Discord username "eyob_75891" copied to clipboard!');
+        });
+    </script>
+    </script>
+</body>
+</html>
