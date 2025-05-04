@@ -9,20 +9,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         :root {
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --text-light: #888888;
-            --primary-color: #a020f0;
-            --secondary-color: #f0f2f5;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --card-bg: #ffffff;
+            --bg-color: #111827;  /* Dark background color from screenshot */
+            --text-color: #ffffff;
+            --text-light: #94a3b8;
+            --primary-color: #a855f7;  /* Purple color for highlighted elements */
+            --secondary-color: #1e293b;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --card-bg: #1e293b;
         }
 
         .dark-mode {
             --bg-color: #121212;
             --text-color: #e0e0e0;
             --text-light: #aaaaaa;
-            --primary-color: #a020f0;
+            --primary-color: #a855f7;
             --secondary-color: #1e1e1e;
             --shadow-color: rgba(0, 0, 0, 0.3);
             --card-bg: #1e1e1e;
@@ -99,268 +99,87 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Home Section */
+        /* Home Section - Updated */
         .home {
-            min-height: calc(100vh - 100px);
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             gap: 2rem;
             padding: 2rem 0;
+            text-align: center;
         }
 
-        .home-text {
-            flex: 1;
+        .welcome-container {
+            margin-bottom: 2rem;
         }
 
-        .greeting-container {
+        .welcome-text {
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-light);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+        }
+
+        .hero-container {
+            max-width: 900px;
             margin-bottom: 3rem;
         }
 
-        .greeting {
-            font-size: 5.5rem;
+        .hero-text {
+            font-size: 5rem;
             font-weight: 800;
             line-height: 1.1;
-            color: #aaaaaa;
-            margin-bottom: 0.5rem;
-        }
-
-        .name-line {
-            font-size: 5.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            color: #aaaaaa;
-            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
         }
 
         .name-highlight {
             color: var(--primary-color);
         }
 
-        .meet-line {
-            font-size: 5.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            color: #aaaaaa;
-        }
-
-        .profile-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
+        .hero-subtitle {
+            font-size: 1.8rem;
             color: var(--text-light);
-            overflow: hidden;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .social-links {
+        .social-links-container {
             display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
         .social-link {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
         }
 
-        /* About section styles */
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .about-text {
-            margin-bottom: 2rem;
-        }
-
-        .about-paragraph {
+        .social-link i {
             font-size: 1.2rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
         }
 
-        .about-focus h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-
-        .focus-list {
-            list-style: none;
-        }
-
-        .focus-list li {
-            display: flex;
-            margin-bottom: 2rem;
-            align-items: flex-start;
-        }
-
-        .focus-icon {
-            background-color: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .focus-list h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-
-        .focus-list p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        /* About section styles */
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .about-text {
-            margin-bottom: 2rem;
-        }
-
-        .about-paragraph {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-
-        .about-focus h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-
-        .focus-list {
-            list-style: none;
-        }
-
-        .focus-list li {
-            display: flex;
-            margin-bottom: 2rem;
-            align-items: flex-start;
-        }
-
-        .focus-icon {
-            background-color: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .focus-list h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-
-        .focus-list p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        /* Experience section styles */
-        .experience-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
-            margin-bottom: 3rem;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px var(--shadow-color);
-        }
-
-        .experience-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-list {
-            list-style-type: disc;
-            padding-left: 2rem;
-        }
-
-        .experience-list li {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
         /* About section styles */
         .about-container {
             max-width: 1000px;
@@ -466,115 +285,171 @@
             line-height: 1.6;
         }
         
-        /* Projects section styles */
+        /* Projects section styles - Updated */
+        #projects {
+            padding: 5rem 0;
+            background-color: var(--bg-color);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+        
         .projects-container {
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
         }
-
+        
         .project-card {
+            display: grid;
+            grid-template-columns: 1fr;
             background-color: var(--card-bg);
-            border-radius: 10px;
+            border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 5px 15px var(--shadow-color);
-            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .project-header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--secondary-color);
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
-
-        .project-title {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin: 0;
+        
+        .project-image {
+            width: 100%;
+            overflow: hidden;
         }
-
+        
+        .project-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
         .project-content {
             padding: 2rem;
         }
-
-        .project-images {
-            margin-bottom: 2rem;
-        }
-
-        .project-image {
-            margin-bottom: 1.5rem;
-        }
-
-        .project-image img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px var(--shadow-color);
-        }
-
-        .image-caption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
-        }
-
-        .project-image-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .project-description {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
-
-        .project-description p {
-            margin-bottom: 1.5rem;
-        }
-
-        .project-description h4 {
-            font-size: 1.3rem;
-            margin: 1.5rem 0 1rem;
+        
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
             color: var(--text-color);
         }
-
-        .feature-list {
-            padding-left: 1.5rem;
-            margin-bottom: 2rem;
+        
+        .project-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
-
-        .feature-list li {
-            margin-bottom: 0.5rem;
+        
+        .project-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
-
-        .project-links {
+        
+        .tech-badge {
+            background-color: rgba(168, 85, 247, 0.2);
+            color: var(--primary-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-highlights {
             display: flex;
             gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
-
+        
+        .highlight {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+        }
+        
+        .highlight-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+        
+        .highlight-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .project-features ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .project-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
         .project-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background-color: var(--primary-color);
-            color: white;
             padding: 0.8rem 1.5rem;
-            border-radius: 5px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
-            transition: transform 0.3s, opacity 0.3s;
+            transition: all 0.3s ease;
+            font-size: 1rem;
         }
-
+        
+        .project-link {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .github-link {
+            background-color: #333;
+            color: white;
+        }
+        
         .project-link:hover {
-            opacity: 0.9;
             transform: translateY(-3px);
-        }
-
-        @media (max-width: 768px) {
-            .project-image-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+            opacity: 0.9;
         }
         
         /* Skills section styles */
@@ -670,13 +545,6 @@
             line-height: 1.6;
         }
 
-        @media (max-width: 768px) {
-            .soft-skills {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-
         /* Other sections (hidden initially) */
         #about, #experience, #projects, #skills {
             display: none;
@@ -684,26 +552,14 @@
             padding: 4rem 0;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .greeting, .name-line, .meet-line {
+            .hero-text {
                 font-size: 4rem;
             }
         }
 
         @media (max-width: 768px) {
-            .home {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-
             .navbar {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -713,12 +569,53 @@
                 gap: 1.5rem;
             }
 
-            .greeting, .name-line, .meet-line {
-                font-size: 3rem;
+            .hero-text {
+                font-size: 3.5rem;
             }
 
-            .social-links {
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .soft-skills {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-content {
+                padding: 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 1.5rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            
+            .project-link {
+                width: 100%;
                 justify-content: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .project-card {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .project-image {
+                height: 100%;
+            }
+            
+            .project-image img {
+                height: 100%;
+                object-fit: cover;
             }
         }
 
@@ -731,8 +628,18 @@
                 font-size: 0.9rem;
             }
 
-            .greeting, .name-line, .meet-line {
+            .hero-text {
                 font-size: 2.5rem;
+            }
+            
+            .social-links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-link {
+                width: 80%;
+                justify-content: center;
             }
         }
     </style>
@@ -753,48 +660,29 @@
     </nav>
 
     <section id="home" class="home">
-        <div class="home-text">
-            <div class="greeting-container">
-                <h1 class="greeting">Hello!</h1>
-                <p class="name-line">I'm <span class="name-highlight">Eyob</span></p>
-                <p class="meet-line">Nice to meet you</p>
-            </div>
+        <div class="welcome-container">
+            <p class="welcome-text">Welcome to my portfolio</p>
+        </div>
 
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/eyob-bekele-0626a519b" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:eyobbekele112@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="#" class="social-link discord-link" title="Discord: eyob_75891">
-                    <i class="fab fa-discord"></i>
-                </a>
-                <a href="https://github.com/laserblade21" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
+        <div class="hero-container">
+            <h1 class="hero-text">Hi! I'm <span class="name-highlight">Eyob</span></h1>
+            <p class="hero-subtitle">A passionate developer with experience in web development, machine learning, and data analysis.</p>
         </div>
-         <div class="profile-container">
-        <div class="profile-image" style="
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            border: 3px solid #cccccc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        ">
-            <img src="propic.jpg" alt="Eyob's Portrait" style="
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            ">
+
+        <div class="social-links-container">
+            <a href="https://www.linkedin.com/in/eyob-bekele-0626a519b" target="_blank" class="social-link">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="mailto:eyobbekele112@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="#" class="social-link discord-link" title="Discord: eyob_75891">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+            <a href="https://github.com/laserblade21" target="_blank" class="social-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
         </div>
-    </div>
     </section>
 
     <section id="about">
@@ -809,7 +697,7 @@
                         Right now, I work at Hunger Hub delivering meals to movie productions across the city. It's fast-paced work that keeps me on my toes, but I enjoy the energy of film sets and making sure crews get their food on time. Before this, I built up experience back home that helped prepare me for the Canadian job market.
                     </p>
                     <p class="about-paragraph">
-                        I’m 27 and focused on growing both professionally and personally. I’m passionate about AI and excited about where the technology is heading. Outside of work, I enjoy staying active—whether that’s hitting the gym or playing soccer with friends. My background gives me a unique perspective, and I’m eager to bring my blend of international experience and technical skills to my next opportunity.
+                        I'm 27 and focused on growing both professionally and personally. I'm passionate about AI and excited about where the technology is heading. Outside of work, I enjoy staying active—whether that's hitting the gym or playing soccer with friends. My background gives me a unique perspective, and I'm eager to bring my blend of international experience and technical skills to my next opportunity.
                     </p>
                 </div>
                 
@@ -862,85 +750,127 @@
     <section id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-container">
+            <!-- Churn-Sight Project -->
             <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">Banking Churn Prediction System</h3>
+                <div class="project-image">
+                    <img src="/api/placeholder/800/450" alt="Churn-Sight Dashboard" />
                 </div>
                 <div class="project-content">
-                    <div class="project-description">
-                        <p>
-                            The <strong>Banking Churn Prediction System</strong> is an advanced data-driven platform that helps financial institutions predict customer churn. It provides interactive visualizations, risk segmentation, and actionable insights to enhance customer retention strategies.
-                        </p>
-                        <h4>Key Features:</h4>
-                        <ul class="feature-list">
-                            <li>Customer risk scoring and segmentation</li>
-                            <li>Interactive dashboards with comprehensive data views</li>
-                            <li>Customizable risk threshold configuration</li>
-                            <li>Automatic model retraining with new data</li>
-                            <li>Feature importance analysis for churn prediction</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/laserblade21/banking-churn-prediction" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> View on GitHub
-                            </a>
+                    <h3 class="project-title">Churn-Sight: Customer Retention Platform</h3>
+                    <p class="project-description">
+                        An advanced data-driven platform that helps different kinds of businesses predict customer churn. It provides interactive visualizations, risk segmentation, and actionable insights to enhance customer retention strategies.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Tailwind CSS</span>
+                        <span class="tech-badge">XGBoost</span>
+                        <span class="tech-badge">Data Visualization</span>
+                    </div>
+                    <div class="project-highlights">
+                        <div class="highlight">
+                            <span class="highlight-label">F1 Score</span>
+                            <span class="highlight-value">48%</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-label">ROC-AUC</span>
+                            <span class="highlight-value">63.99%</span>
                         </div>
                     </div>
-                    
-                    <div class="project-images">
-                        <div class="project-image">
-                            <img src="/images/customer-data-table.jpg" alt="Customer data table" class="img-fluid" />
-                            <p class="image-caption">Customer risk analysis dashboard</p>
-                        </div>
-                        <div class="project-image-grid">
-                            <div class="image-grid-item">
-                                <img src="/images/model-configuration.jpg" alt="Model configuration" class="img-fluid" />
-                                <p class="image-caption">Risk threshold configuration</p>
-                            </div>
-                            <div class="image-grid-item">
-                                <img src="/images/customer-overview.jpg" alt="Customer overview" class="img-fluid" />
-                                <p class="image-caption">Customer data view</p>
-                            </div>
-                        </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Interactive dashboard with real-time churn metrics</li>
+                            <li>Customer risk scoring with distribution analysis</li>
+                            <li>Retention rate tracking and trend analysis</li>
+                            <li>AI-powered insights to identify at-risk customers</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://churn-sight.com/dashboard" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/laserblade21/churn-sight" target="_blank" class="project-link github-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
                     </div>
                 </div>
             </div>
 
+            <!-- Banking Churn Prediction Model -->
             <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">Amazon Reviews Spam Detection using LLM Model</h3>
+                <div class="project-image">
+                    <img src="/api/placeholder/800/450" alt="Banking Churn Prediction Model" />
                 </div>
                 <div class="project-content">
-                    <div class="project-description">
-                        <p>
-                            A spam detection system for Amazon product reviews by leveraging a BERT-based pre-trained language model. The project involved three key components:
-                        </p>
-                        
-                        <h4>Model Architecture:</h4>
-                        <p>Fine-tuned a bert-base-multilingual-uncased model specifically for sentiment analysis on product reviews.</p>
-                        
-                        <h4>Backend Implementation:</h4>
-                        <p>Built the backend using Flask, a lightweight Python web framework. The Flask app serves as the interface for handling incoming review texts and forwarding them to the LLM model for sentiment analysis.</p>
-                        
-                        <h4>Frontend Design:</h4>
-                        <p>For the user interface, utilized HTML and CSS to create an intuitive and user-friendly web page. Users can input review text, and the system provides an instant sentiment prediction based on the trained model.</p>
-                        
-                        <h4>Key Achievements:</h4>
-                        <ul class="feature-list">
-                            <li>Successfully fine-tuned the LLM model on an Amazon US Customer Reviews Dataset</li>
-                            <li>Achieved an accuracy of 80% on the evaluation set</li>
-                            <li>Implemented a user-friendly web interface for real-time sentiment analysis</li>
-                        </ul>
-                        
-                        <div class="project-links">
-                            <a href="https://github.com/miki2123j/Amazon-Reviews-Spam-Detection-using-LLM-Model/blob/main/README.md" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> View on GitHub
-                            </a>
+                    <h3 class="project-title">Banking Churn Prediction Model</h3>
+                    <p class="project-description">
+                        A machine learning project built to identify customers likely to leave a bank based on their behavior and account characteristics. This served as the foundation for the more comprehensive Churn-Sight platform.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">XGBoost</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                    </div>
+                    <div class="project-highlights">
+                        <div class="highlight">
+                            <span class="highlight-label">F1 Score</span>
+                            <span class="highlight-value">48%</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-label">ROC-AUC</span>
+                            <span class="highlight-value">63.99%</span>
                         </div>
                     </div>
-                    
-                    <div class="project-image">
-                        <img src="/api/placeholder/900/400" alt="Amazon Reviews Spam Detection" class="img-fluid" />
-                        <p class="image-caption">BERT-based sentiment analysis system for Amazon reviews</p>
+                    <div class="project-features">
+                        <ul>
+                            <li>Feature engineering to improve prediction accuracy</li>
+                            <li>Custom evaluation metrics for financial services</li>
+                            <li>Python-based preprocessing pipeline for model training</li>
+                            <li>Extensive exploratory data analysis on banking customer data</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/laserblade21/banking-churn-prediction" target="_blank" class="project-link github-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amazon Reviews Spam Detection -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/api/placeholder/800/450" alt="Amazon Reviews Spam Detection" />
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Amazon Reviews Spam Detection</h3>
+                    <p class="project-description">
+                        A spam detection system for Amazon product reviews leveraging a BERT-based pre-trained language model with a Flask backend and intuitive user interface.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tech-badge">BERT</span>
+                        <span class="tech-badge">Flask</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                    </div>
+                    <div class="project-highlights">
+                        <div class="highlight">
+                            <span class="highlight-label">Accuracy</span>
+                            <span class="highlight-value">80%</span>
+                        </div>
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Fine-tuned a bert-base-multilingual-uncased model</li>
+                            <li>Integrated with Flask for a lightweight backend</li>
+                            <li>User-friendly web interface for real-time sentiment prediction</li>
+                            <li>Trained on Amazon US Customer Reviews Dataset</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/miki2123j/Amazon-Reviews-Spam-Detection-using-LLM-Model/blob/main/README.md" target="_blank" class="project-link github-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1106,7 +1036,6 @@
             // Show a tooltip or alert
             alert('Discord username "eyob_75891" copied to clipboard!');
         });
-    </script>
     </script>
 </body>
 </html>
