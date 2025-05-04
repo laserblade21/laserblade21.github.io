@@ -18,16 +18,6 @@
             --card-bg: #1e293b;
         }
 
-        .dark-mode {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --text-light: #aaaaaa;
-            --primary-color: #a855f7;
-            --secondary-color: #1e1e1e;
-            --shadow-color: rgba(0, 0, 0, 0.3);
-            --card-bg: #1e1e1e;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -99,7 +89,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Home Section - Updated */
+        /* Home Section */
         .home {
             min-height: 100vh;
             display: flex;
@@ -123,6 +113,22 @@
             background-color: rgba(255, 255, 255, 0.1);
             padding: 0.5rem 1.5rem;
             border-radius: 30px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hero-container {
@@ -243,11 +249,156 @@
             line-height: 1.6;
         }
 
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        /* Projects section styles - Updated */
+        #projects {
+            padding: 5rem 0;
+            background-color: var(--bg-color);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+        
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .project-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .project-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .tech-badge {
+            background-color: rgba(168, 85, 247, 0.2);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .project-highlights {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .highlight {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .highlight-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .project-features ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .project-features li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        
+        .project-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .project-link {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .github-link {
+            background-color: #333;
+            color: white;
+        }
+        
+        .project-link:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
         }
 
         /* Experience section styles */
@@ -273,183 +424,40 @@
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
+        
+        .experience-company {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-period {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
 
         .experience-list {
-            list-style-type: disc;
-            padding-left: 2rem;
+            list-style-type: none;
+            padding-left: 0.5rem;
         }
 
         .experience-list li {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        /* Projects section styles - Updated */
-        #projects {
-            padding: 5rem 0;
-            background-color: var(--bg-color);
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--text-color);
-        }
-        
-        .projects-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-        }
-        
-        .project-card {
-            display: grid;
-            grid-template-columns: 1fr;
-            background-color: var(--card-bg);
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .project-image {
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        .project-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
-        }
-        
-        .project-content {
-            padding: 2rem;
-        }
-        
-        .project-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-        
-        .project-description {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .project-tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tech-badge {
-            background-color: rgba(168, 85, 247, 0.2);
-            color: var(--primary-color);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .project-highlights {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .highlight {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
-        }
-        
-        .highlight-label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0.3rem;
-        }
-        
-        .highlight-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .project-features ul {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 1.5rem;
-        }
-        
-        .project-features li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
             color: var(--text-light);
         }
         
-        .project-features li::before {
+        .experience-list li::before {
             content: "•";
             position: absolute;
             left: 0;
             color: var(--primary-color);
-            font-weight: bold;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-        
-        .project-link {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .github-link {
-            background-color: #333;
-            color: white;
-        }
-        
-        .project-link:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
+            font-size: 1.5rem;
+            line-height: 1;
         }
         
         /* Skills section styles */
@@ -577,21 +585,23 @@
                 font-size: 1.4rem;
             }
 
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
             .soft-skills {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
             
-            .project-card {
-                grid-template-columns: 1fr;
+            .project-highlights {
+                flex-direction: column;
+                gap: 1rem;
             }
             
-            .project-content {
-                padding: 1.5rem;
-            }
-            
-            .project-title {
-                font-size: 1.5rem;
+            .highlight {
+                width: 100%;
             }
             
             .project-links {
@@ -601,21 +611,6 @@
             .project-link {
                 width: 100%;
                 justify-content: center;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .project-card {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .project-image {
-                height: 100%;
-            }
-            
-            .project-image img {
-                height: 100%;
-                object-fit: cover;
             }
         }
 
@@ -641,6 +636,11 @@
                 width: 80%;
                 justify-content: center;
             }
+            
+            .project-tech-stack {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -650,8 +650,8 @@
         <ul class="nav-links">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
         </ul>
         <button class="theme-toggle">
@@ -662,6 +662,10 @@
     <section id="home" class="home">
         <div class="welcome-container">
             <p class="welcome-text">Welcome to my portfolio</p>
+        </div>
+        
+        <div class="profile-image">
+            <img src="propic.jpg" alt="Eyob's Portrait">
         </div>
 
         <div class="hero-container">
@@ -731,30 +735,11 @@
         </div>
     </section>
 
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-container">
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3 class="experience-title">Eleos Games - Intern</h3>
-                </div>
-                <ul class="experience-list">
-                    <li>Developed a functional chatbot to enhance user engagement.</li>
-                    <li>Contributed to server management using Docker, improving deployment efficiency.</li>
-                    <li>Assisted in website development and content management using Drupal.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <section id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-container">
             <!-- Churn-Sight Project -->
             <div class="project-card">
-                <div class="project-image">
-                    <img src="/api/placeholder/800/450" alt="Churn-Sight Dashboard" />
-                </div>
                 <div class="project-content">
                     <h3 class="project-title">Churn-Sight: Customer Retention Platform</h3>
                     <p class="project-description">
@@ -797,9 +782,6 @@
 
             <!-- Banking Churn Prediction Model -->
             <div class="project-card">
-                <div class="project-image">
-                    <img src="/api/placeholder/800/450" alt="Banking Churn Prediction Model" />
-                </div>
                 <div class="project-content">
                     <h3 class="project-title">Banking Churn Prediction Model</h3>
                     <p class="project-description">
@@ -839,9 +821,6 @@
 
             <!-- Amazon Reviews Spam Detection -->
             <div class="project-card">
-                <div class="project-image">
-                    <img src="/api/placeholder/800/450" alt="Amazon Reviews Spam Detection" />
-                </div>
                 <div class="project-content">
                     <h3 class="project-title">Amazon Reviews Spam Detection</h3>
                     <p class="project-description">
@@ -877,7 +856,56 @@
         </div>
     </section>
 
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-container">
+            <!-- Hunger Hub Experience -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="experience-title">Delivery Associate</h3>
+                    <p class="experience-company">Hunger Hub</p>
+                    <p class="experience-period">Present</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Deliver meals to movie productions across the city, ensuring timely service in high-pressure environments.</li>
+                    <li>Navigate complex film set environments and coordinate with production staff to meet strict scheduling requirements.</li>
+                    <li>Manage delivery logistics in a fast-paced environment, prioritizing tasks and optimizing routes for efficiency.</li>
+                </ul>
+            </div>
+            
+            <!-- Website Developer Experience -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="experience-title">Website Developer</h3>
+                    <p class="experience-company">Nuueyu Ethiopia</p>
+                    <p class="experience-period">2020 - 2021</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Built responsive user interfaces that improved site engagement.</li>
+                    <li>Implemented mobile-friendly designs to expand accessibility across devices.</li>
+                    <li>Enhanced website functionality to support growing user requirements.</li>
+                </ul>
+            </div>
+            
+            <!-- Eleos Games Experience -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="experience-title">Intern</h3>
+                    <p class="experience-company">Eleos Games</p>
+                    <p class="experience-period">2019 - 2020</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Developed a functional chatbot to enhance user engagement.</li>
+                    <li>Contributed to server management using Docker, improving deployment efficiency.</li>
+                    <li>Assisted in website development and content management using Drupal.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section id="skills">
+        <h2 class="section
+            <section id="skills">
         <h2 class="section-title">Skills</h2>
         <div class="skills-container">
             <div class="skills-category">
