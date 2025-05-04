@@ -9,20 +9,19 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         :root {
-            --bg-color: #111827;  /* Dark background color from screenshot */
+            --bg-color: #111827;
+            --card-bg: #1e293b;
             --text-color: #ffffff;
             --text-light: #94a3b8;
-            --primary-color: #a855f7;  /* Purple color for highlighted elements */
+            --primary-color: #a855f7;
             --secondary-color: #1e293b;
             --shadow-color: rgba(0, 0, 0, 0.3);
-            --card-bg: #1e293b;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
         }
 
         body {
@@ -30,15 +29,20 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
-            padding: 0 2rem;
-            max-width: 1400px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* Navigation */
         .navbar {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 2rem 0;
         }
@@ -46,8 +50,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
-            margin: 0 auto;
+            gap: 3rem;
         }
 
         .nav-links a {
@@ -57,6 +60,7 @@
             font-size: 1.1rem;
             position: relative;
             padding-bottom: 0.5rem;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover,
@@ -74,31 +78,17 @@
             background-color: var(--primary-color);
         }
 
-        .theme-toggle {
-            cursor: pointer;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
         /* Home Section */
         .home {
-            min-height: 100vh;
+            min-height: calc(100vh - 100px);
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            padding: 2rem 0;
-            text-align: center;
+            justify-content: space-between;
+            padding: 4rem 0;
+        }
+
+        .home-content {
+            max-width: 60%;
         }
 
         .welcome-container {
@@ -107,37 +97,16 @@
 
         .welcome-text {
             display: inline-block;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 500;
             color: var(--text-light);
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             padding: 0.5rem 1.5rem;
             border-radius: 30px;
         }
 
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 2rem;
-            border: 3px solid var(--primary-color);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-container {
-            max-width: 900px;
-            margin-bottom: 3rem;
-        }
-
         .hero-text {
-            font-size: 5rem;
+            font-size: 4.5rem;
             font-weight: 800;
             line-height: 1.1;
             color: var(--text-color);
@@ -149,46 +118,212 @@
         }
 
         .hero-subtitle {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--text-light);
             line-height: 1.5;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
         }
 
-        .social-links-container {
+        .profile-container {
+            width: 35%;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 400px;
         }
 
         .social-link {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            background-color: var(--secondary-color);
+            gap: 0.75rem;
+            background-color: rgba(30, 41, 59, 0.8);
             color: var(--text-color);
             padding: 0.8rem 1.5rem;
-            border-radius: 9999px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
+            background-color: rgba(30, 41, 59, 1);
+            transform: translateY(-2px);
         }
 
         .social-link i {
             font-size: 1.2rem;
         }
 
-        /* About section styles */
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Experience & Projects Cards */
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            position: relative;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .card-category {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-period {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .card-list {
+            list-style-type: none;
+        }
+
+        .card-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .card-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Project Cards */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            background-color: rgba(168, 85, 247, 0.2);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .metrics-container {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .github-link {
+            background-color: #333;
+            color: white;
+        }
+
+        .project-link:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        /* About section */
         .about-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -203,14 +338,14 @@
         }
 
         .about-paragraph {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.7;
             margin-bottom: 1.5rem;
-            color: var(--text-color);
+            color: var(--text-light);
         }
 
         .about-focus h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
             color: var(--text-color);
         }
@@ -228,8 +363,8 @@
         .focus-icon {
             background-color: var(--primary-color);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -249,220 +384,9 @@
             line-height: 1.6;
         }
 
-        /* Projects section styles - Updated */
-        #projects {
-            padding: 5rem 0;
-            background-color: var(--bg-color);
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--text-color);
-        }
-        
-        .projects-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-        }
-        
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            padding: 2.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .project-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .project-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-        
-        .project-description {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-        
-        .project-tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-        
-        .tech-badge {
-            background-color: rgba(168, 85, 247, 0.2);
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        
-        .project-highlights {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .highlight {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-        }
-        
-        .highlight-label {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-        
-        .highlight-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .project-features ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .project-features li {
-            position: relative;
-            padding-left: 1.8rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-light);
-            font-size: 1.05rem;
-        }
-        
-        .project-features li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 1.2rem;
-            margin-top: 0.5rem;
-        }
-        
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-        
-        .project-link {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .github-link {
-            background-color: #333;
-            color: white;
-        }
-        
-        .project-link:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
-        }
-
-        /* Experience section styles */
-        .experience-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
-            margin-bottom: 3rem;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px var(--shadow-color);
-        }
-
-        .experience-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .experience-company {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .experience-period {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .experience-list {
-            list-style-type: none;
-            padding-left: 0.5rem;
-        }
-
-        .experience-list li {
-            position: relative;
-            padding-left: 1.8rem;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--text-light);
-        }
-        
-        .experience-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-        
-        /* Skills section styles */
+        /* Skills section */
         .skills-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -527,8 +451,8 @@
         .soft-skill-icon {
             background-color: var(--primary-color);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -553,100 +477,110 @@
             line-height: 1.6;
         }
 
-        /* Other sections (hidden initially) */
-        #about, #experience, #projects, #skills {
-            display: none;
-            min-height: calc(100vh - 100px);
-            padding: 4rem 0;
+        /* Section styles */
+        section {
+            padding: 5rem 0;
         }
 
-        /* Responsive Design */
+        #home {
+            padding-top: 0;
+        }
+
+        /* Mobile responsive styles */
         @media (max-width: 1024px) {
-            .hero-text {
-                font-size: 4rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
             .hero-text {
                 font-size: 3.5rem;
             }
-
-            .hero-subtitle {
-                font-size: 1.4rem;
+            
+            .profile-image {
+                width: 350px;
+                height: 350px;
             }
+        }
 
+        @media (max-width: 900px) {
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .home-content {
+                max-width: 100%;
+            }
+            
+            .profile-container {
+                width: 80%;
+            }
+            
+            .hero-subtitle {
+                margin: 0 auto 2.5rem;
+            }
+            
+            .social-grid {
+                margin: 0 auto;
+            }
+            
             .about-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
-
+            
             .soft-skills {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 1.5rem 0;
             }
             
-            .project-highlights {
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-text {
+                font-size: 2.8rem;
+            }
+            
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .card-category {
+                position: static;
+                margin-bottom: 1rem;
+            }
+            
+            .metrics-container {
                 flex-direction: column;
                 gap: 1rem;
-            }
-            
-            .highlight {
-                width: 100%;
             }
             
             .project-links {
                 flex-direction: column;
             }
-            
-            .project-link {
-                width: 100%;
-                justify-content: center;
-            }
         }
 
-        @media (max-width: 480px) {
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
-
-            .hero-text {
-                font-size: 2.5rem;
-            }
-            
-            .social-links-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .social-link {
-                width: 80%;
-                justify-content: center;
-            }
-            
-            .project-tech-stack {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        /* Hide sections by default */
+        #about, #experience, #projects, #skills {
+            display: none;
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div></div> <!-- Empty div for spacing -->
         <ul class="nav-links">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -654,121 +588,131 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
         </ul>
-        <button class="theme-toggle">
-            <i class="fas fa-moon"></i>
-        </button>
     </nav>
 
-    <section id="home" class="home">
-        <div class="welcome-container">
-            <p class="welcome-text">Welcome to my portfolio</p>
-        </div>
-        
-        <div class="profile-image">
-            <img src="propic.jpg" alt="Eyob's Portrait">
-        </div>
-
-        <div class="hero-container">
-            <h1 class="hero-text">Hi! I'm <span class="name-highlight">Eyob</span></h1>
-            <p class="hero-subtitle">A passionate developer with experience in web development, machine learning, and data analysis.</p>
-        </div>
-
-        <div class="social-links-container">
-            <a href="https://www.linkedin.com/in/eyob-bekele-0626a519b" target="_blank" class="social-link">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-            </a>
-            <a href="mailto:eyobbekele112@gmail.com" class="social-link">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="#" class="social-link discord-link" title="Discord: eyob_75891">
-                <i class="fab fa-discord"></i> Discord
-            </a>
-            <a href="https://github.com/laserblade21" target="_blank" class="social-link">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container">
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-paragraph">
-                        I moved to Canada from Ethiopia a few years ago, bringing with me my education from University of Mekelle and a passion for new challenges. Since arriving, I've continued learning through courses at York University and recently earned a certificate in AI and prompt engineering from BusyQA. 
-                    </p>
-                    <p class="about-paragraph">
-                        Right now, I work at Hunger Hub delivering meals to movie productions across the city. It's fast-paced work that keeps me on my toes, but I enjoy the energy of film sets and making sure crews get their food on time. Before this, I built up experience back home that helped prepare me for the Canadian job market.
-                    </p>
-                    <p class="about-paragraph">
-                        I'm 27 and focused on growing both professionally and personally. I'm passionate about AI and excited about where the technology is heading. Outside of work, I enjoy staying active—whether that's hitting the gym or playing soccer with friends. My background gives me a unique perspective, and I'm eager to bring my blend of international experience and technical skills to my next opportunity.
-                    </p>
+    <div class="container">
+        <section id="home" class="home">
+            <div class="home-content">
+                <div class="welcome-container">
+                    <p class="welcome-text">Welcome to my portfolio</p>
                 </div>
                 
-                <div class="about-focus">
-                    <h3>What I Do</h3>
-                    <ul class="focus-list">
-                        <li>
-                            <span class="focus-icon"><i class="fas fa-code"></i></span>
-                            <div>
-                                <h4>Web Development</h4>
-                                <p>Building responsive websites and applications using modern technologies.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="focus-icon"><i class="fas fa-brain"></i></span>
-                            <div>
-                                <h4>Machine Learning</h4>
-                                <p>Developing algorithms and models that can learn from and make predictions on data.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="focus-icon"><i class="fas fa-chart-line"></i></span>
-                            <div>
-                                <h4>Data Analysis</h4>
-                                <p>Interpreting data sets to identify trends and extract valuable insights.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <h1 class="hero-text">Hi! I'm <span class="name-highlight">Eyob</span></h1>
+                <p class="hero-subtitle">A passionate developer with experience in web development, machine learning, and data analysis.</p>
+                
+                <div class="social-grid">
+                    <a href="https://www.linkedin.com/in/eyob-bekele-0626a519b" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="mailto:eyobbekele112@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="#" class="social-link discord-link" title="Discord: eyob_75891">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                    <a href="https://github.com/laserblade21" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+            
+            <div class="profile-container">
+                <div class="profile-image">
+                    <img src="propic.jpg" alt="Eyob's Portrait">
+                </div>
+            </div>
+        </section>
 
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-container">
-            <!-- Churn-Sight Project -->
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Churn-Sight: Customer Retention Platform</h3>
-                    <p class="project-description">
+        <section id="about">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-paragraph">
+                            I moved to Canada from Ethiopia a few years ago, bringing with me my education from University of Mekelle and a passion for new challenges. Since arriving, I've continued learning through courses at York University and recently earned a certificate in AI and prompt engineering from BusyQA. 
+                        </p>
+                        <p class="about-paragraph">
+                            Right now, I work at Hunger Hub delivering meals to movie productions across the city. It's fast-paced work that keeps me on my toes, but I enjoy the energy of film sets and making sure crews get their food on time. Before this, I built up experience back home that helped prepare me for the Canadian job market.
+                        </p>
+                        <p class="about-paragraph">
+                            I'm 27 and focused on growing both professionally and personally. I'm passionate about AI and excited about where the technology is heading. Outside of work, I enjoy staying active—whether that's hitting the gym or playing soccer with friends. My background gives me a unique perspective, and I'm eager to bring my blend of international experience and technical skills to my next opportunity.
+                        </p>
+                    </div>
+                    
+                    <div class="about-focus">
+                        <h3>What I Do</h3>
+                        <ul class="focus-list">
+                            <li>
+                                <span class="focus-icon"><i class="fas fa-code"></i></span>
+                                <div>
+                                    <h4>Web Development</h4>
+                                    <p>Building responsive websites and applications using modern technologies.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="focus-icon"><i class="fas fa-brain"></i></span>
+                                <div>
+                                    <h4>Machine Learning</h4>
+                                    <p>Developing algorithms and models that can learn from and make predictions on data.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="focus-icon"><i class="fas fa-chart-line"></i></span>
+                                <div>
+                                    <h4>Data Analysis</h4>
+                                    <p>Interpreting data sets to identify trends and extract valuable insights.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+            </div>
+            
+            <div class="card-container">
+                <!-- Churn-Sight Project -->
+                <div class="card">
+                    <span class="card-category">Data Science</span>
+                    <h3 class="card-title">Churn-Sight: Customer Retention Platform</h3>
+                    <p class="card-period">2024</p>
+                    
+                    <p class="about-paragraph">
                         An advanced data-driven platform that helps different kinds of businesses predict customer churn. It provides interactive visualizations, risk segmentation, and actionable insights to enhance customer retention strategies.
                     </p>
-                    <div class="project-tech-stack">
+                    
+                    <div class="project-tech">
                         <span class="tech-badge">React</span>
                         <span class="tech-badge">Tailwind CSS</span>
                         <span class="tech-badge">XGBoost</span>
                         <span class="tech-badge">Data Visualization</span>
                     </div>
-                    <div class="project-highlights">
-                        <div class="highlight">
-                            <span class="highlight-label">F1 Score</span>
-                            <span class="highlight-value">48%</span>
+                    
+                    <div class="metrics-container">
+                        <div class="metric">
+                            <span class="metric-label">F1 Score</span>
+                            <span class="metric-value">48%</span>
                         </div>
-                        <div class="highlight">
-                            <span class="highlight-label">ROC-AUC</span>
-                            <span class="highlight-value">63.99%</span>
+                        <div class="metric">
+                            <span class="metric-label">ROC-AUC</span>
+                            <span class="metric-value">63.99%</span>
                         </div>
                     </div>
-                    <div class="project-features">
-                        <ul>
-                            <li>Interactive dashboard with real-time churn metrics</li>
-                            <li>Customer risk scoring with distribution analysis</li>
-                            <li>Retention rate tracking and trend analysis</li>
-                            <li>AI-powered insights to identify at-risk customers</li>
-                        </ul>
-                    </div>
+                    
+                    <ul class="card-list">
+                        <li>Interactive dashboard with real-time churn metrics</li>
+                        <li>Customer risk scoring with distribution analysis</li>
+                        <li>Retention rate tracking and trend analysis</li>
+                        <li>AI-powered insights to identify at-risk customers</li>
+                    </ul>
+                    
                     <div class="project-links">
                         <a href="https://churn-sight.com/dashboard" target="_blank" class="project-link">
                             <i class="fas fa-external-link-alt"></i> Live Demo
@@ -778,74 +722,80 @@
                         </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Banking Churn Prediction Model -->
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Banking Churn Prediction Model</h3>
-                    <p class="project-description">
+                <!-- Banking Churn Prediction Model -->
+                <div class="card">
+                    <span class="card-category">Machine Learning</span>
+                    <h3 class="card-title">Banking Churn Prediction Model</h3>
+                    <p class="card-period">2023</p>
+                    
+                    <p class="about-paragraph">
                         A machine learning project built to identify customers likely to leave a bank based on their behavior and account characteristics. This served as the foundation for the more comprehensive Churn-Sight platform.
                     </p>
-                    <div class="project-tech-stack">
+                    
+                    <div class="project-tech">
                         <span class="tech-badge">Python</span>
                         <span class="tech-badge">XGBoost</span>
                         <span class="tech-badge">Pandas</span>
                         <span class="tech-badge">Scikit-learn</span>
                     </div>
-                    <div class="project-highlights">
-                        <div class="highlight">
-                            <span class="highlight-label">F1 Score</span>
-                            <span class="highlight-value">48%</span>
+                    
+                    <div class="metrics-container">
+                        <div class="metric">
+                            <span class="metric-label">F1 Score</span>
+                            <span class="metric-value">48%</span>
                         </div>
-                        <div class="highlight">
-                            <span class="highlight-label">ROC-AUC</span>
-                            <span class="highlight-value">63.99%</span>
+                        <div class="metric">
+                            <span class="metric-label">ROC-AUC</span>
+                            <span class="metric-value">63.99%</span>
                         </div>
                     </div>
-                    <div class="project-features">
-                        <ul>
-                            <li>Feature engineering to improve prediction accuracy</li>
-                            <li>Custom evaluation metrics for financial services</li>
-                            <li>Python-based preprocessing pipeline for model training</li>
-                            <li>Extensive exploratory data analysis on banking customer data</li>
-                        </ul>
-                    </div>
+                    
+                    <ul class="card-list">
+                        <li>Feature engineering to improve prediction accuracy</li>
+                        <li>Custom evaluation metrics for financial services</li>
+                        <li>Python-based preprocessing pipeline for model training</li>
+                        <li>Extensive exploratory data analysis on banking customer data</li>
+                    </ul>
+                    
                     <div class="project-links">
                         <a href="https://github.com/laserblade21/banking-churn-prediction" target="_blank" class="project-link github-link">
                             <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Amazon Reviews Spam Detection -->
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Amazon Reviews Spam Detection</h3>
-                    <p class="project-description">
+                <!-- Amazon Reviews Spam Detection -->
+                <div class="card">
+                    <span class="card-category">NLP</span>
+                    <h3 class="card-title">Amazon Reviews Spam Detection</h3>
+                    <p class="card-period">2023</p>
+                    
+                    <p class="about-paragraph">
                         A spam detection system for Amazon product reviews leveraging a BERT-based pre-trained language model with a Flask backend and intuitive user interface.
                     </p>
-                    <div class="project-tech-stack">
+                    
+                    <div class="project-tech">
                         <span class="tech-badge">BERT</span>
                         <span class="tech-badge">Flask</span>
                         <span class="tech-badge">Python</span>
                         <span class="tech-badge">HTML/CSS</span>
                     </div>
-                    <div class="project-highlights">
-                        <div class="highlight">
-                            <span class="highlight-label">Accuracy</span>
-                            <span class="highlight-value">80%</span>
+                    
+                    <div class="metrics-container">
+                        <div class="metric">
+                            <span class="metric-label">Accuracy</span>
+                            <span class="metric-value">80%</span>
                         </div>
                     </div>
-                    <div class="project-features">
-                        <ul>
-                            <li>Fine-tuned a bert-base-multilingual-uncased model</li>
-                            <li>Integrated with Flask for a lightweight backend</li>
-                            <li>User-friendly web interface for real-time sentiment prediction</li>
-                            <li>Trained on Amazon US Customer Reviews Dataset</li>
-                        </ul>
-                    </div>
+                    
+                    <ul class="card-list">
+                        <li>Fine-tuned a bert-base-multilingual-uncased model</li>
+                        <li>Integrated with Flask for a lightweight backend</li>
+                        <li>User-friendly web interface for real-time sentiment prediction</li>
+                        <li>Trained on Amazon US Customer Reviews Dataset</li>
+                    </ul>
+                    
                     <div class="project-links">
                         <a href="https://github.com/miki2123j/Amazon-Reviews-Spam-Detection-using-LLM-Model/blob/main/README.md" target="_blank" class="project-link github-link">
                             <i class="fab fa-github"></i> View Code
@@ -853,173 +803,153 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-container">
-            <!-- Hunger Hub Experience -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3 class="experience-title">Delivery Associate</h3>
-                    <p class="experience-company">Hunger Hub</p>
-                    <p class="experience-period">Present</p>
-                </div>
-                <ul class="experience-list">
-                    <li>Deliver meals to movie productions across the city, ensuring timely service in high-pressure environments.</li>
-                    <li>Navigate complex film set environments and coordinate with production staff to meet strict scheduling requirements.</li>
-                    <li>Manage delivery logistics in a fast-paced environment, prioritizing tasks and optimizing routes for efficiency.</li>
-                </ul>
+        <section id="experience">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
             </div>
             
-            <!-- Website Developer Experience -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3 class="experience-title">Website Developer</h3>
-                    <p class="experience-company">Nuueyu Ethiopia</p>
-                    <p class="experience-period">2020 - 2021</p>
+            <div class="card-container">
+                <!-- Hunger Hub Experience -->
+                <div class="card">
+                    <span class="card-category">Logistics</span>
+                    <h3 class="card-title">Hunger Hub - Delivery Associate</h3>
+                    <p class="card-period">July 2022 - Present</p>
+                    
+                    <ul class="card-list">
+                        <li>Deliver meals to movie productions across the city, ensuring timely service in high-pressure environments.</li>
+                        <li>Navigate complex film set environments and coordinate with production staff to meet strict scheduling requirements.</li>
+                        <li>Manage delivery logistics in a fast-paced environment, prioritizing tasks and optimizing routes for efficiency.</li>
+                    </ul>
                 </div>
-                <ul class="experience-list">
-                    <li>Built responsive user interfaces that improved site engagement.</li>
-                    <li>Implemented mobile-friendly designs to expand accessibility across devices.</li>
-                    <li>Enhanced website functionality to support growing user requirements.</li>
-                </ul>
-            </div>
-            
-            <!-- Eleos Games Experience -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3 class="experience-title">Intern</h3>
-                    <p class="experience-company">Eleos Games</p>
-                    <p class="experience-period">2019 - 2020</p>
+                
+                <!-- Website Developer Experience -->
+                <div class="card">
+                    <span class="card-category">Web Development</span>
+                    <h3 class="card-title">Nuueyu Ethiopia - Website Developer</h3>
+                    <p class="card-period">2020 - 2021</p>
+                    
+                    <ul class="card-list">
+                        <li>Built responsive user interfaces that improved site engagement.</li>
+                        <li>Implemented mobile-friendly designs to expand accessibility across devices.</li>
+                        <li>Enhanced website functionality to support growing user requirements.</li>
+                    </ul>
                 </div>
-                <ul class="experience-list">
-                    <li>Developed a functional chatbot to enhance user engagement.</li>
-                    <li>Contributed to server management using Docker, improving deployment efficiency.</li>
-                    <li>Assisted in website development and content management using Drupal.</li>
-                </ul>
+                
+                <!-- Eleos Games Experience -->
+                <div class="card">
+                    <span class="card-category">Software Development</span>
+                    <h3 class="card-title">Eleos Games - Intern</h3>
+                    <p class="card-period">Summer 2024</p>
+                    
+                    <ul class="card-list">
+                        <li>Developed a functional chatbot to enhance user engagement using Python and natural language processing libraries.</li>
+                        <li>Contributed to server management using Docker, improving deployment efficiency by 30%.</li>
+                        <li>Assisted in website development and content management using Drupal, creating responsive designs and implementing SEO best practices.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills">
-        <h2 class="section
-            <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-container">
-            <div class="skills-category">
-                <h3 class="skills-heading">Technical Skills</h3>
-                <div class="tech-skills">
-                    <div class="skill-item">
-                        <i class="fab fa-java"></i>
-                        <span>Java</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-python"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-react"></i>
-                        <span>React</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-brain"></i>
-                        <span>Machine Learning</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <span>SQL</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-code-branch"></i>
-                        <span>Git</span>
-                    </div>
-                </div>
+        <section id="skills">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
             </div>
             
-            <div class="skills-category">
-                <h3 class="skills-heading">Soft Skills</h3>
-                <div class="soft-skills">
-                    <div class="soft-skill">
-                        <div class="soft-skill-icon">
-                            <i class="fas fa-clock"></i>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3 class="skills-heading">Technical Skills</h3>
+                    <div class="tech-skills">
+                        <div class="skill-item">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
                         </div>
-                        <div class="soft-skill-content">
-                            <h4>Time Management</h4>
-                            <p>Delivering taught me how to manage my time efficiently, especially under tight deadlines.</p>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Machine Learning</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Git</span>
                         </div>
                     </div>
-                    
-                    <div class="soft-skill">
-                        <div class="soft-skill-icon">
-                            <i class="fas fa-comments"></i>
+                </div>
+                
+                <div class
+                    <div class="skills-category">
+                    <h3 class="skills-heading">Soft Skills</h3>
+                    <div class="soft-skills">
+                        <div class="soft-skill">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="soft-skill-content">
+                                <h4>Time Management</h4>
+                                <p>Delivering taught me how to manage my time efficiently, especially under tight deadlines.</p>
+                            </div>
                         </div>
-                        <div class="soft-skill-content">
-                            <h4>Communication</h4>
-                            <p>I also got used to talking with all kinds of people, which improved my communication and adaptability.</p>
+                        
+                        <div class="soft-skill">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="soft-skill-content">
+                                <h4>Communication</h4>
+                                <p>I also got used to talking with all kinds of people, which improved my communication and adaptability.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="soft-skill">
-                        <div class="soft-skill-icon">
-                            <i class="fas fa-random"></i>
+                        
+                        <div class="soft-skill">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-random"></i>
+                            </div>
+                            <div class="soft-skill-content">
+                                <h4>Adaptability</h4>
+                                <p>Every day was unpredictable, so I learned to adjust quickly to changing situations.</p>
+                            </div>
                         </div>
-                        <div class="soft-skill-content">
-                            <h4>Adaptability</h4>
-                            <p>Every day was unpredictable, so I learned to adjust quickly to changing situations.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="soft-skill">
-                        <div class="soft-skill-icon">
-                            <i class="fas fa-puzzle-piece"></i>
-                        </div>
-                        <div class="soft-skill-content">
-                            <h4>Problem Solving</h4>
-                            <p>I developed strong problem-solving skills by addressing challenges on the fly.</p>
+                        
+                        <div class="soft-skill">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <div class="soft-skill-content">
+                                <h4>Problem Solving</h4>
+                                <p>I developed strong problem-solving skills by addressing challenges on the fly.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <script>
         // Show home section by default
         document.getElementById('home').style.display = 'flex';
 
-        // Dark mode toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Simple navigation
+        // Navigation
         const navLinks = document.querySelectorAll('.nav-links a');
         const sections = document.querySelectorAll('section');
 
